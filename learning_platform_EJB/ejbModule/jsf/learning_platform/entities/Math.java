@@ -16,7 +16,6 @@ public class Math implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="math_id")
 	private int mathId;
 

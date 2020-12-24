@@ -15,20 +15,17 @@ public class Section implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="section_id")
 	private int sectionId;
+
+	@Column(name="class_class_id")
+	private int classClassId;
 
 	private String name;
 
 	//bi-directional many-to-one association to Math
 	@OneToMany(mappedBy="section")
 	private List<Math> maths;
-
-	//bi-directional many-to-one association to Class
-	@ManyToOne
-	@JoinColumn(name="class_class_id")
-	private Class clazz;
 
 	//bi-directional many-to-one association to Test
 	@OneToMany(mappedBy="section")
@@ -43,6 +40,14 @@ public class Section implements Serializable {
 
 	public void setSectionId(int sectionId) {
 		this.sectionId = sectionId;
+	}
+
+	public int getClassClassId() {
+		return this.classClassId;
+	}
+
+	public void setClassClassId(int classClassId) {
+		this.classClassId = classClassId;
 	}
 
 	public String getName() {
@@ -73,14 +78,6 @@ public class Section implements Serializable {
 		math.setSection(null);
 
 		return math;
-	}
-
-	public Class getClazz() {
-		return this.clazz;
-	}
-
-	public void setClazz(Class clazz) {
-		this.clazz = clazz;
 	}
 
 	public List<Test> getTests() {

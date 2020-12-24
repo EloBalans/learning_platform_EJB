@@ -15,7 +15,6 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="user_id")
 	private int userId;
 
@@ -24,8 +23,6 @@ public class User implements Serializable {
 	private int experience;
 
 	private int lvl;
-
-	private String nick;
 
 	private String password;
 
@@ -72,13 +69,6 @@ public class User implements Serializable {
 		this.lvl = lvl;
 	}
 
-	public String getNick() {
-		return this.nick;
-	}
-
-	public void setNick(String nick) {
-		this.nick = nick;
-	}
 
 	public String getPassword() {
 		return this.password;
