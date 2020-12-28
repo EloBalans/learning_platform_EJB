@@ -37,7 +37,7 @@ public class UserDAO {
 	public List<User> getUsers() {
 		List<User> list = null;
 
-		Query query = em.createQuery("select p from Person p");
+		Query query = em.createQuery("select u from User u");
 
 		try {
 			list = query.getResultList();
@@ -53,7 +53,7 @@ public class UserDAO {
 		return "0";
 	}
 
-	public List<User> getUser(String login, String password) {
+	public List<User> getUser(String email, String password) {
 		List<User> user = null;
 
 		
@@ -63,18 +63,18 @@ public class UserDAO {
 		String orderby = "";
 
 		
-		if (login != null&&password != null) {
+		if (email != null&&password != null) {
 			if (where.isEmpty()) {
 				where = "where ";
 			} else {
 				where += "and ";
 			}
-			where += "u.login like :login and u.password like :password ";
+			where += "u.email like :email and u.password like :password ";
 		}
 		
 		Query query = em.createQuery(select + from + where + orderby);
 
-			query.setParameter("login", login);
+			query.setParameter("email", email);
 			query.setParameter("password", password);
 
 		try {

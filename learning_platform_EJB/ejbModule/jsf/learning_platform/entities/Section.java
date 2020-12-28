@@ -18,10 +18,9 @@ public class Section implements Serializable {
 	@Column(name="section_id")
 	private int sectionId;
 
-	@Column(name="class_class_id")
-	private int classClassId;
 
 	private String name;
+	private String description;
 
 	//bi-directional many-to-one association to Math
 	@OneToMany(mappedBy="section")
@@ -42,13 +41,7 @@ public class Section implements Serializable {
 		this.sectionId = sectionId;
 	}
 
-	public int getClassClassId() {
-		return this.classClassId;
-	}
-
-	public void setClassClassId(int classClassId) {
-		this.classClassId = classClassId;
-	}
+	
 
 	public String getName() {
 		return this.name;
@@ -56,6 +49,14 @@ public class Section implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public List<Math> getMaths() {
