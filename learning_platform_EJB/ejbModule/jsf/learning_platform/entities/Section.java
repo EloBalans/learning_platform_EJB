@@ -31,13 +31,13 @@ public class Section implements Serializable {
 	private List<Test> tests;
 
 	public Section() {
-	}
+	}	
 
-	public int getSectionId() {
+	public Integer getSectionId() {
 		return this.sectionId;
 	}
 
-	public void setSectionId(int sectionId) {
+	public void setSectionId(Integer sectionId) {
 		this.sectionId = sectionId;
 	}
 

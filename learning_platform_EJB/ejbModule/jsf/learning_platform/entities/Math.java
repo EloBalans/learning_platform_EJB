@@ -2,7 +2,6 @@ package jsf.learning_platform.entities;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.sql.Time;
 import java.util.List;
 
 
@@ -33,11 +32,11 @@ public class Math implements Serializable {
 
 	private String content;
 
+	private String correctAnswer;
+
 	private String experience;
 
-	private String operation;
-
-	private Time time;
+	private int time;
 
 	//bi-directional many-to-one association to Answer
 	@OneToMany(mappedBy="math")
@@ -58,11 +57,11 @@ public class Math implements Serializable {
 	public Math() {
 	}
 
-	public int getMathId() {
+	public Integer getMathId() {
 		return this.mathId;
 	}
 
-	public void setMathId(int mathId) {
+	public void setMathId(Integer mathId) {
 		this.mathId = mathId;
 	}
 
@@ -106,6 +105,14 @@ public class Math implements Serializable {
 		this.content = content;
 	}
 
+	public String getCorrectAnswer() {
+		return this.correctAnswer;
+	}
+
+	public void setCorrectAnswer(String corrrectAnswer) {
+		this.correctAnswer = corrrectAnswer;
+	}
+
 	public String getExperience() {
 		return this.experience;
 	}
@@ -114,19 +121,11 @@ public class Math implements Serializable {
 		this.experience = experience;
 	}
 
-	public String getOperation() {
-		return this.operation;
-	}
-
-	public void setOperation(String operation) {
-		this.operation = operation;
-	}
-
-	public Time getTime() {
+	public int getTime() {
 		return this.time;
 	}
 
-	public void setTime(Time time) {
+	public void setTime(int time) {
 		this.time = time;
 	}
 
